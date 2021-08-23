@@ -1,7 +1,6 @@
-import 'package:assignment_2/answer.dart';
 import 'package:assignment_2/quiz.dart';
+import 'package:assignment_2/result.dart';
 import 'package:flutter/material.dart';
-import 'package:assignment_2/question.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +16,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
   int _totalScore = 0;
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
 
   void _answerQuestion(int score) {
     _totalScore += score;
@@ -66,10 +72,15 @@ class _MyAppState extends State<MyApp> {
           title: Text('Assignment_2'),
           centerTitle: true,
         ),
-        body: Quiz(
-            questionIndex: _questionIndex,
-            questionList: _questionList,
-            answerQuestion: _answerQuestion),
+        body: (_questionIndex < _questionList.length)
+            ? Quiz(
+                questionIndex: _questionIndex,
+                questionList: _questionList,
+                answerQuestion: _answerQuestion)
+            : Result(
+                totalScore: _totalScore,
+                resetQuiz: _resetQuiz,
+              ),
       ),
     );
   }
