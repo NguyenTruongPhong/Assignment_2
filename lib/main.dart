@@ -64,11 +64,41 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.green,
+        primaryColor: Colors.red,
+        primarySwatch: Colors.lightGreen,
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {},
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+              ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.more_vert,
+              ),
+            ),
+          ],
+          bottom: PreferredSize(
+            child: Container(
+              color: Colors.lightGreen.shade100,
+              height: 75.0,
+              width: double.infinity,
+              child: Center(
+                child: Text('Bottom'),
+              ),
+            ),
+            preferredSize: Size.fromHeight(75.0),
+          ),
           title: Text('Assignment_2'),
           centerTitle: true,
         ),

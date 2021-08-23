@@ -15,9 +15,9 @@ class Answer extends StatelessWidget {
         onPressed: answerQuestion,
         child: Text('$answer'),
         style: ElevatedButton.styleFrom(
-          primary: Colors.red,
-          onPrimary: Colors.green,
-        ),
+            // primary: Colors.red,
+            // onPrimary: Colors.green,
+            ),
       ),
     );
   }
