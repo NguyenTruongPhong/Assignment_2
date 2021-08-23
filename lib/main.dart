@@ -16,7 +16,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
   int _totalScore = 0;
-  String 'You are great Phong!';
 
   void _resetQuiz() {
     setState(() {
